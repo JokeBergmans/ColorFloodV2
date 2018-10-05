@@ -1,9 +1,12 @@
 package gui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +32,15 @@ public class OptionsController extends BorderPane {
             System.out.println(e);
         }
         this.msc = msc;
+    }
+
+    @FXML
+    private void setTheme(ActionEvent ae) {
+        Button btn = (Button) ae.getSource();
+        HBox hBox = (HBox) btn.getGraphic();
+        Paint[] colors = msc.getColors(hBox);
+        msc.changeTheme(colors);
+        close();
     }
 
     @FXML

@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
 <fx:root prefHeight="600.0" prefWidth="900.0" type="BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <GridPane fx:id="field" alignment="CENTER" BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints>
+    <center>
+        <GridPane fx:id="field" alignment="CENTER" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints>
 
-            </ColumnConstraints>
-        </columnConstraints>
-          <rowConstraints>
-              <RowConstraints>
+                </ColumnConstraints>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints>
 
-              </RowConstraints>
-        </rowConstraints>
-      </GridPane>
-   </center>
-   <bottom>
-      <HBox fx:id="hBoxBtns" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0" BorderPane.alignment="CENTER">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="60.0" onMousePressed="#changeColor" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff71f" height="60.0" onMousePressed="#changeColor" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3aff1f" height="60.0" onMousePressed="#changeColor" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="60.0" onMousePressed="#changeColor" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bf1fff" height="60.0" onMousePressed="#changeColor" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="20.0" />
-         </BorderPane.margin></HBox>
-   </bottom>
-   <top>
-      <VBox prefHeight="200.0" prefWidth="248.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="btnNewGame" mnemonicParsing="false" onAction="#startNewGame" text="New Game" />
-            <Button fx:id="btnOptions" mnemonicParsing="false" onAction="#openOptions" text="Options" />
-            <HBox prefHeight="29.0" prefWidth="900.0" spacing="5.0">
-               <children>
-                  <Label text="Your score: " />
-                  <Label fx:id="lblScore" />
-               </children>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets left="20.0" top="20.0" />
-         </BorderPane.margin>
-      </VBox>
-   </top>
+                </RowConstraints>
+            </rowConstraints>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox fx:id="hBoxBtns" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="60.0" onMousePressed="#changeColor" width="60.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="60.0" onMousePressed="#changeColor" width="60.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LAWNGREEN" height="60.0" onMousePressed="#changeColor" width="60.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="60.0" onMousePressed="#changeColor" width="60.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKVIOLET" height="60.0" onMousePressed="#changeColor" width="60.0" />
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="20.0" />
+            </BorderPane.margin>
+        </HBox>
+    </bottom>
+    <top>
+        <VBox prefHeight="115.0" prefWidth="880.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnNewGame" mnemonicParsing="false" onAction="#startNewGame" text="New Game" />
+                <Button fx:id="btnOptions" mnemonicParsing="false" onAction="#openOptions" text="Options" />
+                <HBox prefHeight="29.0" prefWidth="900.0" spacing="5.0">
+                    <children>
+                        <Label text="Your score: " />
+                        <Label fx:id="lblScore" />
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets left="20.0" top="20.0" />
+            </BorderPane.margin>
+        </VBox>
+    </top>
 </fx:root>

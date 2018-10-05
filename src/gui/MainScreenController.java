@@ -110,11 +110,11 @@ public class MainScreenController extends BorderPane {
 
     // returns random color
     private Paint getRandomColor() {
-        return getColors()[new Random().nextInt(5)];
+        return getColors(hBoxBtns)[new Random().nextInt(5)];
     }
 
-    private Paint[] getColors() {
-        return hBoxBtns.getChildren().stream()
+    public Paint[] getColors(HBox hBox) {
+        return hBox.getChildren().stream()
                 .map(c -> (Rectangle) c)
                 .map(Rectangle::getFill)
                 .toArray(Paint[]::new);
@@ -157,6 +157,7 @@ public class MainScreenController extends BorderPane {
         }
     }
 
+    // open options screen
     @FXML
     public void openOptions() {
         Stage stage = (Stage) getScene().getWindow();
@@ -167,14 +168,17 @@ public class MainScreenController extends BorderPane {
         newStage.show();
     }
 
+    // change color theme
     public void changeTheme(Paint[] colors) {
         Rectangle[] rectangles = hBoxBtns.getChildren().stream()
                 .map(c -> (Rectangle) c)
                 .toArray(Rectangle[]::new);
         IntStream.range(0, 5)
                 .forEach(i -> rectangles[i].setFill(colors[i]));
+        startNewGame();
     }
 
+    // change size of board
     public void setSize(int r, int c) {
         rows = r;
         cols = c;
