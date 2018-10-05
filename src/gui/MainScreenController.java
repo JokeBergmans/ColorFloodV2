@@ -5,24 +5,26 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 import java.util.Stack;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class MainScreenController extends BorderPane {
+
+    private FXMLLoader f;
 
     @FXML
     private GridPane field;
@@ -42,7 +44,7 @@ public class MainScreenController extends BorderPane {
     private Paint corner;
 
     public MainScreenController() {
-        FXMLLoader f = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+        f = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
         f.setRoot(this);
         f.setController(this);
         try {
@@ -152,6 +154,41 @@ public class MainScreenController extends BorderPane {
         fill(source.getFill());
         if (won()) {
             showWonScreen();
+        }
+    }
+
+    @FXML
+    public void openOptions() {
+        Stage stage = (Stage) getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.initOwner(stage);
+        Scene scene = new Scene(new OptionsController(this));
+        newStage.setScene(scene);
+        newStage.show();
+    }
+
+    public void changeTheme(Paint[] colors) {
+        Rectangle[] rectangles = hBoxBtns.getChildren().stream()
+                .map(c -> (Rectangle) c)
+                .toArray(Rectangle[]::new);
+        IntStream.range(0, 5)
+                .forEach(i -> rectangles[i].setFill(colors[i]));
+    }
+
+    public void setSize(int r, int c) {
+        rows = r;
+        cols = c;
+        emptyField();
+        createField();
+        startNewGame();
+    }
+
+    // reload to remove all rows & columns
+    private void emptyField() {
+        try {
+            f.load();
+        } catch (IOException e) {
+            System.out.println(e);
         }
     }
 }

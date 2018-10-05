@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -38,7 +37,7 @@
       <VBox prefHeight="200.0" prefWidth="248.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnNewGame" mnemonicParsing="false" onAction="#startNewGame" text="New Game" />
-            <Button fx:id="btnOptions" mnemonicParsing="false" text="Options" />
+            <Button fx:id="btnOptions" mnemonicParsing="false" onAction="#openOptions" text="Options" />
             <HBox prefHeight="29.0" prefWidth="900.0" spacing="5.0">
                <children>
                   <Label text="Your score: " />
